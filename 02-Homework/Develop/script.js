@@ -2,6 +2,20 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+//Shuffle function
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 function writePassword() {
   var passwordLength = prompt("How long do you want your password? (Choose a number between 8 and 128)");
   passwordLength = parseInt(passwordLength);
@@ -14,7 +28,7 @@ function writePassword() {
   const lowercaseCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   const uppercaseCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   const numericCharacters = ['0','1','2','3','4','5','6','7','8','9'];
-  const specialCharacters = ['!','@','#','$','%','^','&','*'];
+  const specialCharacters = ['!','@','#','$','%','^','&','*','-','_'];
 
   var charCount = 0;
   if (userLowercase === true){
@@ -29,8 +43,6 @@ function writePassword() {
   if (userSpecial === true){
     charCount++
   }
-  console.log(charCount);
-
 
   function generatePassword() {
     var word = [];
@@ -58,11 +70,10 @@ function writePassword() {
     while(word.length != passwordLength){
       word.pop()
     }
-      
-    console.log(word.length)
-    console.log(passwordLength)
+    shuffle(word);
 
-    return(word);
+
+    return(word.join(''));
   }
   
   var password = generatePassword();
