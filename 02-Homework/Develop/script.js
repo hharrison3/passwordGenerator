@@ -68,10 +68,11 @@ function writePassword() {
       }
     };
     while(word.length != passwordLength){
-      word.pop()
+      var index = Math.floor( Math.random()*word.length );
+      console.log( word[index] ); // Log the item
+      word.splice( index, 1 );
     }
     shuffle(word);
-
 
     return(word.join(''));
   }
