@@ -16,8 +16,25 @@ function writePassword() {
   const numericCharacters = ['0','1','2','3','4','5','6','7','8','9'];
   const specialCharacters = ['!','@','#','$','%','^','&','*'];
 
+  var charCount = 0;
+  if (userLowecase === true){
+    charCount++
+  }
+  if (userUppercase === true){
+    charCount++
+  }
+  if (userNumeric === true){
+    charCount++
+  }
+  if (userSpecial === true){
+    charCount++
+  }
+  console.log(charCount);
+
+
   function generatePassword() {
-    var word = lowecaseCharacters[4];
+    var word = [];
+
     return(word);
   }
   
@@ -30,3 +47,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// for loop adding random elements of each wanted character list to a new array
+// then for loop taking random elements of new array and adding them to word var
+// return word
+// var item = items[Math.floor(Math.random() * items.length)];
