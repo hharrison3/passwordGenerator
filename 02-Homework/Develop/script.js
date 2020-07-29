@@ -55,6 +55,12 @@ function writePassword() {
         word.push(specialCharacters[Math.floor(Math.random() * specialCharacters.length)]);
       }
     };
+    while(word.length != passwordLength){
+      word.pop()
+    }
+      
+    console.log(word.length)
+    console.log(passwordLength)
 
     return(word);
   }
