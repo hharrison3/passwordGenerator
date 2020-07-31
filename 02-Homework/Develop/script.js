@@ -20,6 +20,11 @@ function writePassword() {
   var passwordLength = prompt("How long do you want your password? (Choose a number between 8 and 128)");
   passwordLength = parseInt(passwordLength);
 
+  if (!(passwordLength>=8) || !(passwordLength<=128)){
+    alert('This is not a number in the desired range');
+    return;
+  };
+
   var userLowercase = confirm("Do you want lowecase Characters?");
   var userUppercase = confirm("Do you want uppercase Characters?");
   var userNumeric = confirm("Do you want numeric Characters?");
@@ -91,3 +96,4 @@ generateBtn.addEventListener("click", writePassword);
 // then for loop taking random elements of new array and adding them to word var
 // return word
 // var item = items[Math.floor(Math.random() * items.length)];
+// if number is out of range or not a number, send prompt again
